@@ -6,14 +6,12 @@ size(n,2);
 Matlab_F = Matlab_FFT(f_n, size(n,2));
 
 % LEER txt CON FFT de C++
-Mi_FFT();
-
-% GRAFICAR FFTs
+Mi_FFT(size(n,2));
 
 
 function [nT , xn] = MuestrearSenial()
-    F = 5; %Frecuencia de entrada
-    Fs = 40; %Frecuencia de muestreo
+    F = 10; %Frecuencia de entrada
+    Fs = 200; %Frecuencia de muestreo y cantidad de muestras
     f = F/Fs; 
     A = 2;  %Amplitud
     Fase = 0;  %theta
@@ -35,21 +33,43 @@ function [nT , xn] = MuestrearSenial()
     
     %Superpongo graficas
     figure(1)
-    plot(t,xt,'LineWidth',1);
+    plot(t,xt,'LineWidth',1,'color','blue');
     hold on
-    stem(n*T,xn,'r');
+    stem(n*T,xn,'magenta');
     grid on; 
+    title('Señal Muestreada', 'color', 'blue')
+    xlabel('Tiempo [s]')
+    ylabel('Amplitd (Volts)')
+    ylim([-2.5 2.5])
+    grid
 
 end
  
 function Matlab_F = Matlab_FFT(f_n, cantMuestras)
-     Matlab_F = fft(f_n,cantMuestras)
-     figure(2)
-     plot(f_n,abs(Matlab_F));
+    Matlab_F = fft(f_n,cantMuestras);
+    figure(2)
+    plot(f_n,abs(Matlab_F));
+    % freq = fftshift(Matlab_F);  
+    % plot(abs(freq));
+    plot(abs(Matlab_F)/cantMuestras)
+    title('MATLAB FFT', 'color', 'blue')
+    xlabel('Frecuencia [Hz]')
+    ylabel('Amplitd (Volts)')
+    grid
 end
 
-function Mi_FFT()
-   T = readtable('Xfourier.txt','ReadVariableNames',false);
-   
-   
+function Mi_FFT(cantMuestras)
+   %T = readtable('Xfourier.txt','ReadVariableNames',false);
+    misResults = fopen('Xfourier.txt','r');
+    A = textscan(misResults,'%s');
+    fclose(misResults);
+    A = str2double(A{1});
+    B = transpose(A);
+    figure(3)
+    plot(abs(B)/cantMuestras)   
+    title('Mi FFT', 'color', 'blue')
+    xlabel('Frecuencia [Hz]')
+    ylabel('Amplitd (Volts)')
+    grid
+
 end

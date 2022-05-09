@@ -14,7 +14,7 @@ int main() {
 
 	/* Busco la señal f(n) con N muestras*/
 	ifstream f_n_txt;
-	f_n_txt.open("xn_45_muestras.txt", ios::in);
+	f_n_txt.open("xn_200_muestras.txt", ios::in);
 	string line;
 
 
@@ -43,7 +43,7 @@ int main() {
 		{
 			for (k = 0; k <= F.size()-1; k++)
 			{
-				F_f_txt << F[k].real() << " " << F[k].imag() << "i -";
+				F_f_txt << F[k].real() << "+" << F[k].imag() << "i\n";
 				cout << F[k].real() << " " << F[k].imag() << "\n";
 			}
 		}
