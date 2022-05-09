@@ -43,8 +43,8 @@ int main() {
 		{
 			for (k = 0; k <= F.size()-1; k++)
 			{
-				F_f_txt << F[k] << "\n";
-				cout << F[k] << "\n";
+				F_f_txt << F[k].real() << " " << F[k].imag() << "i -";
+				cout << F[k].real() << " " << F[k].imag() << "\n";
 			}
 		}
 		

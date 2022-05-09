@@ -34,7 +34,7 @@ void FastFourierTransform::FFT_1(vector<double>& f, vector<complex<double>>& F)
 	for (r = 1; r <= rFin; r++)   //Etapas
 	{
 		cout << "Calculando butterflies... Etapa " << r << "\n";
-		for (g = 1; g <= G; g++) //Grupos por etapa (se multiplica por 2 cada vez q avanzo 1 etapa)
+		for (g=1; g <= G; g++)  //Grupos por etapa (se multiplica por 2 cada vez q avanzo 1 etapa)
 		{
 			for (m = 1; m <= Mari; m++)
 			{
