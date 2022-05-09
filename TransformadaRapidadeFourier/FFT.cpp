@@ -67,6 +67,7 @@ void FastFourierTransform::FFT_2(vector<double>& f, vector<complex<double>>& F)
 	CheckSize(f.size(), f, F);
 
 	//Con esta version me baso en el algoritmo de Cooley-Tukey 
+	// https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm
 	// Make copy of array and apply window
 	for (int i = 0; i < realN; i++) {
 		F[i] = std::complex<double>(f[i], 0);
