@@ -26,31 +26,33 @@ int main() {
 		//pq estoy usando la funcion resize q tarda mucho
 
 		vector<double> f;
-		vector<complex<double>> F(size(f));
+		vector<complex<double>> F;
 
 		while (getline(f_n_txt, line))
 		{
-			//aca le cargo los blaores a el vector f(n)
+			//aca le cargo los valores a el vector f(n)
 			f.push_back(stof(line));
 		}
-	}
 
-	/* CALCULADORA DE TRANSFORMADA DE FOURIER DE f(n)*/
 
-	FastFourierTransform SenalOne;
-	//SenalOne.FFT_1(f, F);
-	SenalOne.FFT_2(f, F);
+		/* CALCULADORA DE TRANSFORMADA DE FOURIER DE f(n)*/
 
-	ofstream F_f_txt;
-	int k;
-	F_f_txt.open("Xfourier.txt", ios::out);
-	if (F_f_txt.is_open())
-	{
-		for (k = 0; k <= F.size(); k++)
+		FastFourierTransform SenalOne;
+		//SenalOne.FFT_1(f, F);
+		//SenalOne.FFT_2(f, F);
+
+		ofstream F_f_txt;
+		int k;
+		F_f_txt.open("Xfourier.txt", ios::out);
+		if (F_f_txt.is_open())
 		{
-			F_f_txt << F[k] << "\n";
-			cout << F[k] << "\n";
+			for (k = 0; k <= F.size(); k++)
+			{
+				F_f_txt << F[k] << "\n";
+				cout << F[k] << "\n";
+			}
 		}
+
 	}
 
 
