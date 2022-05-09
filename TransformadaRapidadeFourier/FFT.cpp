@@ -63,6 +63,9 @@ void FastFourierTransform::FFT_1(vector<double>& f, vector<complex<double>>& F)
 
 void FastFourierTransform::FFT_2(vector<double>& f, vector<complex<double>>& F)
 {
+	cout << "Checking size...\n \n";
+	CheckSize(f.size(), f, F);
+
 	//Con esta version me baso en el algoritmo de Cooley-Tukey 
 	// Make copy of array and apply window
 	for (int i = 0; i < realN; i++) {
@@ -73,7 +76,6 @@ void FastFourierTransform::FFT_2(vector<double>& f, vector<complex<double>>& F)
 	// Start recursion
 	FFT_2REC(F, realN);
 }
-
 
 void FastFourierTransform::FFT_2REC(vector<complex<double>>& x, size_t N)
 {
@@ -106,7 +108,6 @@ void FastFourierTransform::FFT_2REC(vector<complex<double>>& x, size_t N)
 	}
 
 }
-
 
 void FastFourierTransform::CheckSize(size_t N, vector<double>& f, vector<complex<double>>& F)
 {
