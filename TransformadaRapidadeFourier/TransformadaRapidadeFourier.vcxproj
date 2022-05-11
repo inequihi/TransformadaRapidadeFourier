@@ -149,7 +149,7 @@
     <Text Include="Xfourier.txt" />
     <Text Include="xn_200_muestras.txt" />
     <Text Include="xn_45_muestras.txt" />
-    <Text Include="xn_muestras.txt" />
+    <Text Include="xn_1000_muestras.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

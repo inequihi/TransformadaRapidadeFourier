@@ -37,7 +37,7 @@
     <Text Include="xn_200_muestras.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="xn_muestras.txt">
+    <Text Include="xn_1000_muestras.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
